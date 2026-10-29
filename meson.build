@@ -496,7 +496,7 @@ if contrib_enabled
         cpp_static_args: hwy_static_args,
         link_args: lib_link_args,
         build_by_default: false, # only built if requested...
-        install: true,
+        install: false,
         pic: static_pic,
         version: meson.project_version(),
         link_depends: hwy_link_depends,
@@ -507,12 +507,6 @@ if contrib_enabled
         compile_args: contrib_args,
         link_with: hwy_contrib_lib,
         dependencies: contrib_deps
-    )
-
-    pkg.generate(
-        hwy_contrib_lib,
-        description: 'Additions to Highway: dot product, image, math, sort',
-        name: 'libhwy-contrib',
     )
 
     install_headers(hwy_contrib_headers, preserve_path:true)
